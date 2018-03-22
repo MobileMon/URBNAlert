@@ -91,14 +91,25 @@
     //   dismissed that modal, another alert is not added to the view if the alert
     //   did not finish dismissing yet
     if (!self.viewControllerVisible) {
-        [self setVisible:YES animated:YES completion:nil];
+        
+        
+         __weak typeof(self) weakSelf = self;
+        [self setVisible:YES animated:YES completion:^(URBNAlertViewController *alertVC, BOOL finished) {
+        
+        
+        if (weakSelf.alertStyler.firstResponder) {
+            [weakSelf.alertStyler.firstResponder becomeFirstResponder];
+        }
+        
+ 
+    }];
+        
+        //[self setVisible:YES animated:YES completion:nil];
     }
     
     self.viewControllerVisible = YES;
     
-    if (self.alertStyler.firstResponder) {
-        [self.alertStyler.firstResponder becomeFirstResponder];
-    }
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
