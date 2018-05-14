@@ -360,6 +360,7 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
         _messageTextView.textAlignment = self.alertStyler.messageAlignment;
         _messageTextView.scrollEnabled = NO;
         _messageTextView.editable = NO;
+        _messageTextView.showsHorizontalScrollIndicator = NO;
         [_messageTextView setContentInset:UIEdgeInsetsZero];
         [_messageTextView scrollRangeToVisible:NSMakeRange(0, 0)];
     }
