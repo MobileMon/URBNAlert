@@ -302,6 +302,25 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
         else {
             self.messageTextView.urbn_heightLayoutConstraint.constant = self.messageTextView.contentSize.height;
         }
+        
+        //i added this code here to force scrolling because sometimes the message would get cut off and no scrolling
+        //i think the problem has to do with the above line "self.messageTextView.contentSize.height > maxHeight"
+        //according to some people online you shouldnt use contextSize.height to get the height of a UITextView anymore
+        //instead should use boundingRectWithSize
+        /*
+        //so something like
+            CGRect textRect = [self.messageTextView.text boundingRectWithSize:CGSizeMake(self.messageTextView.frame.size.width, FLT_MAX)
+                                                 options:NSStringDrawingUsesLineFragmentOrigin
+                                              attributes:@{NSFontAttributeName:self.messageTextView.font}
+                                                 context:nil];
+        
+        */
+        //but I didn't reaally have time to mess with it so I added the folliwing 2 lines to force scroll ability
+        //it doesn't dynamically resize the height but oh well it works for now
+        
+        self.messageTextView.scrollEnabled = YES; //mobileMon added
+        [self.messageTextView flashScrollIndicators]; //mobileMon added
+        
     }
     // code above needs to be called before super. Crashes on iOS 7 if called after
     
