@@ -279,9 +279,19 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
     
     CGFloat screenHeight = SCREEN_HEIGHT;
     
+    
+    UIApplication *application = [UIApplication rsk_sharedApplication];
+    if (application) {
+        // call any method of the app instance
+    }
+    else{
+        return;
+    }
+    
+    
     // Need this check because before iOS 8 screen.bounes.size is NOT orientation dependent
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    if ((SYSTEM_VERSION_LESS_THAN(@"8.0")) && UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+    if ((SYSTEM_VERSION_LESS_THAN(@"8.0")) && UIInterfaceOrientationIsLandscape(application.statusBarOrientation)) {
         screenHeight = screenSize.width;
     }
     
