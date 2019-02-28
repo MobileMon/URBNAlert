@@ -11,7 +11,6 @@
 #import "URBNAlertView.h"
 #import "URBNAlertConfig.h"
 #import "URBNAlertAction.h"
-#import "UIApplication+RSKSharedApplication.h"
 
 @interface URBNAlertController ()
 
