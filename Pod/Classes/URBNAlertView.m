@@ -15,6 +15,7 @@
 #import <URBNConvenience/URBNMacros.h>
 #import <URBNConvenience/URBNTextField.h>
 #import <URBNConvenience/UIView+URBNBorders.h>
+#import "UIApplication+RSKSharedApplication.h"
 
 @implementation URBNAlertActionButton
 

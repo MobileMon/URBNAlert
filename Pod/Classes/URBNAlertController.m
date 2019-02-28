@@ -11,6 +11,7 @@
 #import "URBNAlertView.h"
 #import "URBNAlertConfig.h"
 #import "URBNAlertAction.h"
+#import "UIApplication+RSKSharedApplication.h"
 
 @interface URBNAlertController ()
 
@@ -30,7 +31,17 @@
     dispatch_once(&onceToken, ^{
         instance = [[URBNAlertController alloc] init];
         [instance setAlertStyler:[URBNAlertStyle new]];
-        instance.presentingWindow = [[[UIApplication sharedApplication] windows] firstObject];
+        
+        
+        UIApplication *application = [UIApplication rsk_sharedApplication];
+        if (application) {
+            // call any method of the app instance
+        }
+        else{
+            return;
+        }
+        
+        instance.presentingWindow = [[application windows] firstObject];
     });
     
     return instance;
@@ -128,7 +139,15 @@
         return;
     }
     
-    self.presentingWindow = [[[UIApplication sharedApplication] windows] firstObject];
+    UIApplication *application = [UIApplication rsk_sharedApplication];
+    if (application) {
+        // call any method of the app instance
+    }
+    else{
+        return;
+    }
+    
+    self.presentingWindow = [[application windows] firstObject];
     
     self.alertWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.alertWindow.windowLevel = UIWindowLevelAlert;
