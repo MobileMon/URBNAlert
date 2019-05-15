@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+URBN.h"
+#import "URBNTextField.h"
 
 // In seconds
 static const NSTimeInterval URBNConvenienceMinuteThreshold = 60;      // < 1 min
