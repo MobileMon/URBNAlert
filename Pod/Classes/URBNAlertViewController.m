@@ -10,10 +10,6 @@
 #import "URBNAlertView.h"
 #import "URBNAlertController.h"
 #import "URBNAlertConfig.h"
-#import <URBNConvenience/UIImage+URBN.h>
-#import <URBNConvenience/UIView+URBNLayout.h>
-#import <URBNConvenience/UIView+URBNAnimations.h>
-#import <URBNConvenience/URBNTextField.h>
 #import "URBNAlertAction.h"
 
 @interface URBNAlertController(Private)
